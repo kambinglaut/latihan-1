@@ -1,0 +1,291 @@
+/* Reset dan Font Setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    /* Background dasar diubah jadi gradasi lembut */
+    background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+}
+
+/* --- ORNAMEN LATAR BELAKANG UNTUK EFEK GLASSMORPHISM --- */
+/* Membuat bola abstrak berwarna merah dan abu-abu di belakang form */
+body::before, body::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(80px); /* Efek blur pada ornamen */
+}
+
+body::before {
+    width: 350px;
+    height: 350px;
+    background: #D32F2F; /* Warna brand merah */
+    top: -5%;
+    left: 15%;
+    opacity: 0.15;
+}
+
+body::after {
+    width: 450px;
+    height: 450px;
+    background: #90a4ae; /* Warna abu-abu kebiruan */
+    bottom: -10%;
+    right: 10%;
+    opacity: 0.25;
+}
+
+/* --- CONTAINER UTAMA (EFEK KACA / GLASSMORPHISM) --- */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    
+    /* Inti dari Glassmorphism */
+    background: rgba(255, 255, 255, 0.4); /* Putih transparan */
+    backdrop-filter: blur(16px); /* Efek blur kaca */
+    -webkit-backdrop-filter: blur(16px); /* Untuk browser Safari */
+    border: 1px solid rgba(255, 255, 255, 0.7); /* Border tipis mengkilap */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+/* --- BAGIAN KIRI: KOTAK GAMBAR --- */
+.image-section {
+    flex: 1;
+    display: flex;
+    position: relative;
+}
+
+/* Sedikit overlay pada gambar agar menyatu dengan tema elegan */
+.image-section::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0) 70%, rgba(255,255,255,0.1) 100%);
+    pointer-events: none;
+}
+
+.store-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- BAGIAN KANAN: KONTAINER FORM LOGIN --- */
+.form-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* Wrapper form */
+.wrapper {
+    width: 100%;
+    max-width: 380px;
+}
+
+/* Typography & Logo */
+.wrapper h1 {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto 20px;
+    width: 80px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sedikit bayangan di logo */
+}
+
+.welcome-text {
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Input Fields bergaya Glassmorphism */
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    /* Input dibuat agak transparan agar tembus pandang */
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    outline: none;
+    border-radius: 12px;
+    padding: 0 45px 0 20px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.input-box input:focus {
+    border-color: #D32F2F; 
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 15px rgba(211, 47, 47, 0.1);
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+
+/* Remember & Forgot Password */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    margin: -10px 0 20px;
+}
+
+.remember-forgot label {
+    cursor: pointer;
+    color: #444;
+    display: flex;
+    align-items: center;
+}
+
+.remember-forgot input {
+    accent-color: #D32F2F;
+    margin-right: 5px;
+}
+
+.remember-forgot a {
+    color: #D32F2F;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Tombol Login - Sedikit efek glow */
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #D32F2F; 
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(211, 47, 47, 0.25); /* Bayangan tombol dibuat lebih mewah */
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #b71c1c; 
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(211, 47, 47, 0.35);
+}
+
+/* Social Login */
+.social-login {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.social-login p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Ikon sosial media bergaya Glass */
+.social-icons a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    color: #555;
+    font-size: 24px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+}
+
+.social-icons a:hover {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: #D32F2F;
+    color: #D32F2F;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(211, 47, 47, 0.15);
+}
+
+/* Register Link */
+.register-link {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.register-link a {
+    color: #D32F2F;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE UNTUK HP --- */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .image-section {
+        height: 250px; 
+    }
+    .form-section {
+        padding: 30px 20px;
+    }
+    /* Memperkecil ornamen blur di HP */
+    body::before { width: 200px; height: 200px; }
+    body::after { width: 250px; height: 250px; }
+}
